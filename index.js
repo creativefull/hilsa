@@ -5,19 +5,21 @@ global.hilsaLog = require('./lib/console');
 
 process.on("uncaughtException", function(err) {
 	hilsaLog.error(err.stack);
-	hilsaEvent.emit("sendEmail", err);
+	if (global.hilsaEmail) {
+		hilsaEvent.emit("sendEmail", err);
+	}
+	if (global.hilsaSlack) {
+		hilsaEvent.emit("postSlack", err);
+	}
 })
-global.hilsaEmail = {
-	auth : {
-		email : "xxxx",
-		password : "xxxx"
-	}, to : "xxxxx"
-}
 
 require('./lib/emitter');
 
 module.exports = {
 	email : (options) => {
 		global.hilsaEmail = options;
+	},
+	slack : (options) => {
+		global.hilsaSlack = options;
 	}
 }
