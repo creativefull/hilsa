@@ -1,0 +1,19 @@
+{
+  "name": "hilsa",
+  "version": "1.0.0",
+  "description": "The incridible error logging in production",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "error",
+    "log"
+  ],
+  "author": "Shodiqul Muzaki <mshodiqul@gmail.com> (http://creativefull.cf)",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "nodemailer": "^3.0.2"
+  }
+}
